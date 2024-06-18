@@ -36,5 +36,36 @@ if desk in "Ss":
         if desk in "Nn":
             break
 
-print("###"*15)
-print(f"o total a pagar será R${sum(produtos):.2f} reais")
+print("[1] CARTÃO [2] A VISTA")
+pag = int(input("Qual a forma de pagamento?"))
+
+##Se for no cartâo
+if pag == 1:
+    print("[0] NENHUMA, [1] 2X PARCELAS, [2] 3X OU MAIS")
+    parcela = int(input("Em quantas parcelas?? "))
+
+    if parcela == 0:
+        print("###"*15)
+        desconto1 = sum(produtos) - (sum(produtos) * 5 / 100)
+        print(f"o total a pagar será R${desconto1:.2f} reais")
+
+    elif parcela == 1:
+        print("###"*15)
+        print(f"o total a pagar será R${sum(produtos):.2f} reais")
+
+    elif parcela == 2:
+        print("###"*15)
+        juros = (sum(produtos) * 20 / 100) + sum(produtos)
+        print(f"o total a pagar será R${juros:.2f} reais")
+
+    else:
+        print("Numero invalido!")
+
+##Se for a vista
+elif pag == 2:
+    desconto2 = sum(produtos) - (sum(produtos) * 10 / 100)
+    print("###"*15)
+    print(f"o total a pagar será R${desconto2:.2f} reais")
+
+else:
+    print("Resposta invalida! tente dnv")
